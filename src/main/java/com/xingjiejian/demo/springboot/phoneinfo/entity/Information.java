@@ -1,57 +1,28 @@
 package com.xingjiejian.demo.springboot.phoneinfo.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
+import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 咨询表
- * @author Xing.Jiejian
+ * information
+ * @author 
  */
-public class Information {
-    /**
-     * 咨询ID
-     */
+public class Information implements Serializable {
     private Integer id;
-    /**
-     * 咨询标题
-     */
+
     private String title;
-    /**
-     * 咨询内容
-     */
+
     private String content;
-    /**
-     * 回复次数
-     */
-    private Integer replyCount;
-    /**
-     * 查看次数
-     */
-    private Integer viewCount;
-    /**
-     * 发表时间
-     */
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    private Date reportTime;
-    /**
-     * 最后回复时间
-     */
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    private Date lastPostTime;
 
-    public Information() {
-    }
+    private Integer replycount;
 
-    public Information(Integer id, String title, String content, Integer replyCount, Integer viewCount, Date reportTime, Date lastPostTime) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.replyCount = replyCount;
-        this.viewCount = viewCount;
-        this.reportTime = reportTime;
-        this.lastPostTime = lastPostTime;
-    }
+    private Integer viewcount;
+
+    private Date reporttime;
+
+    private Date lastposttime;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -77,35 +48,88 @@ public class Information {
         this.content = content;
     }
 
-    public Integer getReplyCount() {
-        return replyCount;
+    public Integer getReplycount() {
+        return replycount;
     }
 
-    public void setReplyCount(Integer replyCount) {
-        this.replyCount = replyCount;
+    public void setReplycount(Integer replycount) {
+        this.replycount = replycount;
     }
 
-    public Integer getViewCount() {
-        return viewCount;
+    public Integer getViewcount() {
+        return viewcount;
     }
 
-    public void setViewCount(Integer viewCount) {
-        this.viewCount = viewCount;
+    public void setViewcount(Integer viewcount) {
+        this.viewcount = viewcount;
     }
 
-    public Date getReportTime() {
-        return reportTime;
+    public Date getReporttime() {
+        return reporttime;
     }
 
-    public void setReportTime(Date reportTime) {
-        this.reportTime = reportTime;
+    public void setReporttime(Date reporttime) {
+        this.reporttime = reporttime;
     }
 
-    public Date getLastPostTime() {
-        return lastPostTime;
+    public Date getLastposttime() {
+        return lastposttime;
     }
 
-    public void setLastPostTime(Date lastPostTime) {
-        this.lastPostTime = lastPostTime;
+    public void setLastposttime(Date lastposttime) {
+        this.lastposttime = lastposttime;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        Information other = (Information) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getReplycount() == null ? other.getReplycount() == null : this.getReplycount().equals(other.getReplycount()))
+            && (this.getViewcount() == null ? other.getViewcount() == null : this.getViewcount().equals(other.getViewcount()))
+            && (this.getReporttime() == null ? other.getReporttime() == null : this.getReporttime().equals(other.getReporttime()))
+            && (this.getLastposttime() == null ? other.getLastposttime() == null : this.getLastposttime().equals(other.getLastposttime()));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getReplycount() == null) ? 0 : getReplycount().hashCode());
+        result = prime * result + ((getViewcount() == null) ? 0 : getViewcount().hashCode());
+        result = prime * result + ((getReporttime() == null) ? 0 : getReporttime().hashCode());
+        result = prime * result + ((getLastposttime() == null) ? 0 : getLastposttime().hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", title=").append(title);
+        sb.append(", content=").append(content);
+        sb.append(", replycount=").append(replycount);
+        sb.append(", viewcount=").append(viewcount);
+        sb.append(", reporttime=").append(reporttime);
+        sb.append(", lastposttime=").append(lastposttime);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

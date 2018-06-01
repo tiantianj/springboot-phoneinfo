@@ -10,23 +10,7 @@ import java.util.List;
  * @author Xing.Jiejian
  */
 public interface InformationDao {
-    /**
-     * 保存资讯
-     * @param infor
-     */
-    void save(Information infor);
 
-    /**
-     * 修改资讯
-     * @param infor
-     */
-    void update(Information infor);
-
-    /**
-     * 根据ID删除资讯
-     * @param id 咨询ID
-     */
-    void deleteById(int id);
 
     /**
      * 分页查询资讯并按照最后回复时间降序排列
@@ -36,10 +20,4 @@ public interface InformationDao {
      */
     List<Information> findPageOrderLastPostTimeDESC(int pageNo,int pageSize);
 
-    /**
-     * 根据资讯ID查询资讯详细信息
-     * @param id
-     * @return
-     */
-    Information findById(int id);
 }
